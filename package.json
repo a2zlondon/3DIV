@@ -1,0 +1,20 @@
+{
+  "name": "3div.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/a2zlondon/3DIV.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/a2zlondon/3DIV/issues"
+  },
+  "homepage": "https://github.com/a2zlondon/3DIV#readme"
+}

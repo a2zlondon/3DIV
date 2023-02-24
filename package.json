@@ -2,6 +2,9 @@
   "name": "3div.github.io",
   "version": "1.0.0",
   "description": "",
+  "engines": {
+    "node": ">=16.19"
+  },
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

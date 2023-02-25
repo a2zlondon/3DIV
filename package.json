@@ -1,23 +1,9 @@
 {
-  "name": "3div.github.io",
-  "version": "1.0.0",
-  "description": "",
-  "type": "module",
-  "engines": {
-    "node": "16.19.0"
-  },
+  "name": "viewmixer",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {},
   "scripts": {
     "start": "node app.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/a2zlondon/3DIV.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/a2zlondon/3DIV/issues"
-  },
-  "homepage": "https://github.com/a2zlondon/3DIV#readme"
+  }
 }

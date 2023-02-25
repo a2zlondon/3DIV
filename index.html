@@ -1,35 +1,107 @@
 <!DOCTYPE html>
-<html lang="en">
-	<head>
-		<title>GLTFLoader</title>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-        <!--favicon -->
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-        <link rel="apple-touch-icon" sizes="180x180" href="/css/favicon/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="/css/favicon/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/css/favicon/favicon-16x16.png">
-        <link rel="manifest" href="/css/favicon/site.webmanifest">
-        <link rel="mask-icon" href="/css/favicon/safari-pinned-tab.svg" color="#5bbad5">
-        <meta name="msapplication-TileColor" content="#da532c">
-        <meta name="theme-color" content="#ffffff">
-        <!-- end favicon -->
-        <style>
-            body{
-                margin: 0;
-                padding: 0;
-            }
-        </style>
-	</head>
-	<body>
-    <label>ViewMixer Demo II</label>
-        <script type="module">
-            import { App } from './app.js';
+<html>
 
-            document.addEventListener("DOMContentLoaded", function(){
-                const app = new App();
-                window.app = app;
-            });
-        </script>
-	</body>
+<head>
+    <title>ViewMixer</title>
+    <style>
+        body {
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            text-shadow: none;
+        }
+
+        body.blurry {
+            text-shadow: #fff 0px 0px 25px;
+        }
+
+        a {
+            color: #55aaff;
+        }
+
+        .textColumn,
+        .linksColumn {
+            padding: 2em;
+        }
+
+        .textColumn {
+            position: absolute;
+            top: 0px;
+            right: 50%;
+            bottom: 0px;
+            left: 0px;
+
+            text-align: right;
+            padding-top: 11em;
+            background-color: #00ffff;
+
+        }
+
+        .textColumn p {
+            width: 75%;
+            float: right;
+        }
+
+        .linksColumn {
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            bottom: 0px;
+            left: 50%;
+
+            background-color: #008989;
+        }
+
+        h1 {
+            color: #007676;
+            font-size: 500%;
+            font-weight: normal;
+            margin-bottom: 0em;
+        }
+
+        h2 {
+            font-size: 200%;
+            font-weight: normal;
+            margin-bottom: 0em;
+        }
+
+        ul {
+            padding-left: 1em;
+            margin: 0px;
+        }
+
+        li {
+            margin: 1em 0em;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="textColumn">
+        <h1>ViewMixer</h1>
+        <p>This is the demo site where you can create your 3D model and download your embed code</p>
+    </div>
+    <div class="linksColumn">
+        <h2>What's Next?</h2>
+        <ul>
+            <li><a href="/builder/sample/">Sample 3D model to download for free</a></li>
+            <!-- <li><a href="http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.html">AWS Elastic Beanstalk
+                    concepts</a></li>
+            <li><a href="http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_nodejs_express.html">Deploy
+                    an Express Application to AWS Elastic Beanstalk</a></li>
+            <li><a
+                    href="http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_nodejs_express_elasticache.html">Deploy
+                    an Express Application with Amazon ElastiCache to AWS Elastic Beanstalk</a></li>
+            <li><a
+                    href="http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_nodejs_geddy_elasticache.html">Deploy
+                    a Geddy Application with Amazon ElastiCache to AWS Elastic Beanstalk </a></li>
+            <li><a
+                    href="http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_nodejs_custom_container.html">Customizing
+                    and Configuring a Node.js Container </a></li>
+            <li><a href="http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features.loggingS3.title.html">Working
+                    with Logs</a></li> -->
+        </ul>
+    </div>
+</body>
+
 </html>

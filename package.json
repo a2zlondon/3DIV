@@ -2,6 +2,7 @@
   "name": "3div.github.io",
   "version": "1.0.0",
   "description": "",
+  "type": "module",
   "engines": {
     "node": "16.19.0"
   },

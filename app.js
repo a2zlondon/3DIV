@@ -1,9 +1,9 @@
-import * as THREE from '/libs/three/three.module.js';
-import { GLTFLoader } from '/libs/three/jsm/GLTFLoader.js';
-import { FBXLoader } from '/libs/three/jsm/FBXLoader.js';
-import { RGBELoader } from '/libs/three/jsm/RGBELoader.js';
-import { OrbitControls } from '/libs/three/jsm/OrbitControls.js';
-import { LoadingBar } from '/libs/LoadingBar.js';
+import * as THREE from './libs/three/three.module.js';
+import { GLTFLoader } from './libs/three/jsm/GLTFLoader.js';
+import { FBXLoader } from './libs/three/jsm/FBXLoader.js';
+import { RGBELoader } from './libs/three/jsm/RGBELoader.js';
+import { OrbitControls } from './libs/three/jsm/OrbitControls.js';
+import { LoadingBar } from './libs/LoadingBar.js';
 
 class App {
     constructor() {
@@ -50,7 +50,7 @@ class App {
 
         const self = this;
 
-        loader.load('/assets/hdr/venice_sunset_1k.hdr', (texture) => {
+        loader.load('./assets/hdr/venice_sunset_1k.hdr', (texture) => {
             const envMap = pmremGenerator.fromEquirectangular(texture).texture;
             pmremGenerator.dispose();
 
@@ -103,7 +103,7 @@ class App {
     }
 
     loadFBX() {
-        const loader = new FBXLoader().setPath('/assets/');
+        const loader = new FBXLoader().setPath('./assets/');
         const self = this;
 
         loader.load('office-chair.fbx',

@@ -2,106 +2,99 @@
 <html>
 
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Dan Molloy">
     <title>ViewMixer</title>
+    
+    <script src="
+    https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js
+    "></script>
+    <link href="
+    https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css
+    " rel="stylesheet">
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="css/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="css/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="css/favicon/favicon-16x16.png">
+    <link rel="manifest" href="css/favicon/site.webmanifest">
+    <link rel="mask-icon" href="css/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
     <style>
-        body {
-            color: #ffffff;
-            font-family: Arial, sans-serif;
-            font-size: 14px;
-            text-shadow: none;
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
         }
-
-        body.blurry {
-            text-shadow: #fff 0px 0px 25px;
+      }
+      
+      @media screen and (max-width: 750px) {
+        iframe {
+          max-width: 100% !important;
+          width: auto !important;
+          height: auto !important;
         }
-
-        a {
-            color: #55aaff;
-        }
-
-        .textColumn,
-        .linksColumn {
-            padding: 2em;
-        }
-
-        .textColumn {
-            position: absolute;
-            top: 0px;
-            right: 50%;
-            bottom: 0px;
-            left: 0px;
-
-            text-align: right;
-            padding-top: 11em;
-            background-color: #00ffff;
-
-        }
-
-        .textColumn p {
-            width: 75%;
-            float: right;
-        }
-
-        .linksColumn {
-            position: absolute;
-            top: 0px;
-            right: 0px;
-            bottom: 0px;
-            left: 50%;
-
-            background-color: #008989;
-        }
-
-        h1 {
-            color: #007676;
-            font-size: 500%;
-            font-weight: normal;
-            margin-bottom: 0em;
-        }
-
-        h2 {
-            font-size: 200%;
-            font-weight: normal;
-            margin-bottom: 0em;
-        }
-
-        ul {
-            padding-left: 1em;
-            margin: 0px;
-        }
-
-        li {
-            margin: 1em 0em;
-        }
+      }
     </style>
+        <!-- Custom styles for this template -->
+        <link href="css/webxr.css" rel="stylesheet">
 </head>
 
-<body>
-    <div class="textColumn">
-        <h1>ViewMixer</h1>
-        <p>This is the demo site where you can create your 3D model and download your embed code</p>
+<body class="text-center">
+    <script src="https://kit.fontawesome.com/86f3d02ba1.js" crossorigin="anonymous"></script>
+    <header class="masthead mb-auto">
+        <div class="inner">
+            <h3 class="masthead-brand"><img src="css/favicon/favicon-32x32.png" />ViewMixer Builder Demo</h3>
+            <nav class="nav nav-masthead justify-content-center">
+                <a class="nav-link active" href="#">Demo</a>
+                <!-- <a class="nav-link" href="https://github.com/NikLever/CanvasUI">CanvasUI</a>
+                <a class="nav-link" href="https://threejs.org">ThreeJS</a> -->
+            </nav>
+        </div>
+    </header>
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+
+
+        <main role="main" class="inner cover">
+            <h1 class="cover-heading">&nbsp;</h1>
+            <p class="lead">This page demonstrates the basic function of the viewmixer builder</p>
+            <p class="lead">
+                <a href="https://viewmixer.com"
+                    class="btn btn-lg btn-secondary">Learn more</a>
+            </p>
+        </main>
+        <section>
+
+        </section>
+
+
+
+        <!-- <section>
+            <h3>Useful links</h3>
+            <ul>
+                <li><a href="https://three-mesh-ui.herokuapp.com/#basic_setup">three-mesh-ui</a></li>
+                <li><a href="https://immersive-web.github.io/webxr-samples/">WebXR Samples</a></li>
+            </ul>
+        </section> -->
+        <br>
     </div>
-    <div class="linksColumn">
-        <h2>What's Next?</h2>
-        <ul>
-            <li><a href="/builder/sample/">Sample 3D model to download for free</a></li>
-            <!-- <li><a href="http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.html">AWS Elastic Beanstalk
-                    concepts</a></li>
-            <li><a href="http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_nodejs_express.html">Deploy
-                    an Express Application to AWS Elastic Beanstalk</a></li>
-            <li><a
-                    href="http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_nodejs_express_elasticache.html">Deploy
-                    an Express Application with Amazon ElastiCache to AWS Elastic Beanstalk</a></li>
-            <li><a
-                    href="http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_nodejs_geddy_elasticache.html">Deploy
-                    a Geddy Application with Amazon ElastiCache to AWS Elastic Beanstalk </a></li>
-            <li><a
-                    href="http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_nodejs_custom_container.html">Customizing
-                    and Configuring a Node.js Container </a></li>
-            <li><a href="http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features.loggingS3.title.html">Working
-                    with Logs</a></li> -->
-        </ul>
-    </div>
+    <footer class="mastfoot mt-auto">
+        <div class="inner">
+            <p><a href="mailto:info@viewmixer.com"><i class="fa fa-envelope"></i> info@viewmixer.com</a>&emsp;<a
+                    href="https://twitter.com/ViewMixer"><i class="fa fa-twitter"></i> @Viewmixer</a>&emsp;<a
+                    href="https://www.facebook.com/groups/viewmixer"><i class="fa fa-facebook-official"></i> </p>
+        </div>
+    </footer>
 </body>
 
 </html>

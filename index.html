@@ -67,14 +67,23 @@
 
         <main role="main" class="inner cover">
             <h1 class="cover-heading">&nbsp;</h1>
-            <p class="lead">This page demonstrates the basic function of the viewmixer builder</p>
+            <p class="lead">This page demonstrates the basic functions of the ViewMixer builder</p>
             <p class="lead">
                 <a href="https://viewmixer.com"
                     class="btn btn-lg btn-secondary">Learn more</a>
             </p>
         </main>
-        <section>
 
+
+        <section>
+        <script type="module">
+            import { VMBuilder } from '/vm-builder.js';
+
+            document.addEventListener("DOMContentLoaded", function () {
+                const vmbuilder = new VMBuilder();
+                window.app = vmbuilder;
+            });
+        </script>
         </section>
 
 

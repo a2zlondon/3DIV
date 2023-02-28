@@ -15,11 +15,11 @@
     https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css
     " rel="stylesheet">
     <!-- Favicons -->
-    <link rel="apple-touch-icon" sizes="180x180" href="css/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="css/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="css/favicon/favicon-16x16.png">
-    <link rel="manifest" href="css/favicon/site.webmanifest">
-    <link rel="mask-icon" href="css/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="apple-touch-icon" sizes="180x180" href="/css/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/css/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/css/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/css/favicon/site.webmanifest">
+    <link rel="mask-icon" href="/css/favicon/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
     <style>
@@ -47,14 +47,14 @@
       }
     </style>
         <!-- Custom styles for this template -->
-        <link href="css/webxr.css" rel="stylesheet">
+        <link href="../css/webxr.css" rel="stylesheet">
 </head>
 
 <body class="text-center">
     <script src="https://kit.fontawesome.com/86f3d02ba1.js" crossorigin="anonymous"></script>
     <header class="masthead mb-auto">
         <div class="inner">
-            <h3 class="masthead-brand"><img src="css/favicon/favicon-32x32.png" />ViewMixer Builder Demo</h3>
+            <h3 class="masthead-brand"><img src="/css/favicon/favicon-32x32.png" />ViewMixer Builder Demo</h3>
             <nav class="nav nav-masthead justify-content-center">
                 <a class="nav-link active" href="#">Demo</a>
                 <!-- <a class="nav-link" href="https://github.com/NikLever/CanvasUI">CanvasUI</a>
@@ -77,7 +77,7 @@
 
         <section>
         <script type="module">
-            import { VMBuilder } from '/vm-builder.js';
+            import { VMBuilder } from '/js/vm-builder.js';
 
             document.addEventListener("DOMContentLoaded", function () {
                 const vmbuilder = new VMBuilder();

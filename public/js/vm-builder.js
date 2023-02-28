@@ -1,9 +1,9 @@
-import * as THREE from '/libs/three/three.module.js';
-import { GLTFLoader } from '/libs/three/jsm/GLTFLoader.js';
-import { FBXLoader } from '/libs/three/jsm/FBXLoader.js';
-import { RGBELoader } from '/libs/three/jsm/RGBELoader.js';
-import { OrbitControls } from '/libs/three/jsm/OrbitControls.js';
-import { LoadingBar } from '/libs/LoadingBar.js';
+import * as THREE from '../../js/libs/three/three.module.js';
+import { GLTFLoader } from '../../js/libs/three/jsm/GLTFLoader.js';
+import { FBXLoader } from '../../js/libs/three/jsm/FBXLoader.js';
+import { RGBELoader } from '../../js/libs/three/jsm/RGBELoader.js';
+import { OrbitControls } from '../../js/libs/three/jsm/OrbitControls.js';
+import { LoadingBar } from '../../js/libs/LoadingBar.js';
 
 class VMBuilder {
     constructor() {
@@ -62,7 +62,7 @@ class VMBuilder {
     }
 
     loadGLTF() {
-        const loader = new GLTFLoader().setPath('/assets/');
+        const loader = new GLTFLoader().setPath('../assets/');
         const self = this;
 
         // Load a glTF resource
@@ -103,7 +103,7 @@ class VMBuilder {
     }
 
     loadFBX() {
-        const loader = new FBXLoader().setPath('/assets/');
+        const loader = new FBXLoader().setPath('../assets/');
         const self = this;
 
         loader.load('VM_tshirt_basic.fbx',

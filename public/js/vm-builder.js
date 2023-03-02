@@ -8,13 +8,14 @@ import { LoadingBar } from '../../js/libs/LoadingBar.js';
 class VMBuilder {
     constructor() {
         const container = document.createElement('div');
-        document.body.appendChild(container);
+        //document.body.appendChild(container);
+        document.getElementById('3dviewer').appendChild(container);
 
         this.camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 100);
         this.camera.position.set(0, 4, 14);
 
         this.scene = new THREE.Scene();
-        this.scene.background = new THREE.Color(0xaaaaaa);
+        this.scene.background = new THREE.Color(0xffffff);
 
         const ambient = new THREE.HemisphereLight(0xffffff, 0xbbbbff, 0.5);
         this.scene.add(ambient);
@@ -25,7 +26,7 @@ class VMBuilder {
 
         this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
         this.renderer.setPixelRatio(window.devicePixelRatio);
-        this.renderer.setSize(window.innerWidth, window.innerHeight);
+        //this.renderer.setSize( window.innerWidth, window.innerHeight );
         this.renderer.outputEncoding = THREE.sRGBEncoding;
         this.renderer.physicallyCorrectLights = true;
         container.appendChild(this.renderer.domElement);
@@ -40,7 +41,8 @@ class VMBuilder {
         this.controls.target.set(0, 3.5, 0);
         this.controls.update();
 
-        window.addEventListener('resize', this.resize.bind(this));
+        
+        //window.addEventListener('resize', this.resize.bind(this));
     }
 
     setEnvironment() {
@@ -50,15 +52,15 @@ class VMBuilder {
 
         const self = this;
 
-        loader.load('/assets/hdr/venice_sunset_1k.hdr', (texture) => {
-            const envMap = pmremGenerator.fromEquirectangular(texture).texture;
-            pmremGenerator.dispose();
+        // loader.load('/assets/hdr/venice_sunset_1k.hdr', (texture) => {
+        //     const envMap = pmremGenerator.fromEquirectangular(texture).texture;
+        //     pmremGenerator.dispose();
 
-            self.scene.environment = envMap;
+        //     self.scene.environment = envMap;
 
-        }, undefined, (err) => {
-            console.error('An error occurred setting the environment');
-        });
+        // }, undefined, (err) => {
+        //     console.error('An error occurred setting the environment');
+        // });
     }
 
     loadGLTF() {
@@ -68,7 +70,8 @@ class VMBuilder {
         // Load a glTF resource
         loader.load(
             // resource URL
-            'VM_tshirt_basic.gltf',
+            //'VM_tshirt_basic.gltf',
+            'office-chair.glb',
             // called when the resource is loaded
             function (gltf) {
                 const bbox = new THREE.Box3().setFromObject(gltf.scene);
@@ -132,6 +135,7 @@ class VMBuilder {
     }
 
     resize() {
+
         this.camera.aspect = window.innerWidth / window.innerHeight;
         this.camera.updateProjectionMatrix();
         this.renderer.setSize(window.innerWidth, window.innerHeight);
@@ -144,4 +148,3 @@ class VMBuilder {
 }
 
 export { VMBuilder };
-//module.exports = { VMBuilder }

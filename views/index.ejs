@@ -19,14 +19,14 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
     <style>
-      .bd-placeholder-img {
+      /* .bd-placeholder-img {
         font-size: 1.125rem;
         text-anchor: middle;
         -webkit-user-select: none;
         -moz-user-select: none;
         -ms-user-select: none;
         user-select: none;
-      }
+      } */
 
       @media (min-width: 768px) {
         .bd-placeholder-img-lg {
@@ -41,65 +41,95 @@
           height: auto !important;
         }
       }
+
+      canvas {
+        width: 100%;
+      }
+
     </style>
         <!-- Custom styles for this template -->
-        <link href="../css/webxr.css" rel="stylesheet">
+        <!-- <link href="../css/webxr.css" rel="stylesheet"> -->
 </head>
 
-<body class="text-center">
-    <script src="https://kit.fontawesome.com/86f3d02ba1.js" crossorigin="anonymous"></script>
-    <header class="masthead mb-auto">
-        <div class="inner">
-            <h3 class="masthead-brand"><img src="/css/favicon/favicon-32x32.png" />ViewMixer Builder Demo</h3>
-            <nav class="nav nav-masthead justify-content-center">
-                <a class="nav-link active" href="#">Demo</a>
-                <!-- <a class="nav-link" href="https://github.com/NikLever/CanvasUI">CanvasUI</a>
-                <a class="nav-link" href="https://threejs.org">ThreeJS</a> -->
-            </nav>
-        </div>
-    </header>
-    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+<body>
 
-
-        <main role="main" class="inner cover">
-            <h1 class="cover-heading">&nbsp;</h1>
-            <p class="lead">This page demonstrates the basic functions of the ViewMixer builder</p>
-            <p class="lead">
-                <a href="https://viewmixer.com"
-                    class="btn btn-lg btn-secondary">Learn more</a>
-            </p>
-        </main>
-
-
-        <section>
-        <script type="module">
-            import { VMBuilder } from '/js/vm-builder.js';
-
-            document.addEventListener("DOMContentLoaded", function () {
-                const vmbuilder = new VMBuilder();
-                window.app = vmbuilder;
-            });
-        </script>
-        </section>
-
-
-
-        <!-- <section>
-            <h3>Useful links</h3>
-            <ul>
-                <li><a href="https://three-mesh-ui.herokuapp.com/#basic_setup">three-mesh-ui</a></li>
-                <li><a href="https://immersive-web.github.io/webxr-samples/">WebXR Samples</a></li>
-            </ul>
-        </section> -->
-        <br>
+<div class="collapse" id="navbarToggleExternalContent">
+    <div class="bg-light p-4">
+        <h5 class="text-blue h4">ViewMixer</h5>
+        <span class="text-muted">About</span>
     </div>
-    <footer class="mastfoot mt-auto">
-        <div class="inner">
-            <p><a href="mailto:info@viewmixer.com"><i class="fa fa-envelope"></i> info@viewmixer.com</a>&emsp;<a
-                    href="https://twitter.com/ViewMixer"><i class="fa fa-twitter"></i> @Viewmixer</a>&emsp;<a
-                    href="https://www.facebook.com/groups/viewmixer"><i class="fa fa-facebook-official"></i> </p>
+</div>
+<!-- <nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+</nav> -->
+
+<main>
+    <div class="container py-4">
+        <header class="pb-3 mb-4 border-bottom">
+            <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
+                <!-- <svg xmlns="http://www.w3.org/2000/svg" width="40" height="32" class="me-2" viewBox="0 0 118 94"
+                    role="img">
+                    <title>ViewMixer</title>
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M24.509 0c-6.733 0-11.715 5.893-11.492 12.284.214 6.14-.064 14.092-2.066 20.577C8.943 39.365 5.547 43.485 0 44.014v5.972c5.547.529 8.943 4.649 10.951 11.153 2.002 6.485 2.28 14.437 2.066 20.577C12.794 88.106 17.776 94 24.51 94H93.5c6.733 0 11.714-5.893 11.491-12.284-.214-6.14.064-14.092 2.066-20.577 2.009-6.504 5.396-10.624 10.943-11.153v-5.972c-5.547-.529-8.934-4.649-10.943-11.153-2.002-6.484-2.28-14.437-2.066-20.577C105.214 5.894 100.233 0 93.5 0H24.508zM80 57.863C80 66.663 73.436 72 62.543 72H44a2 2 0 01-2-2V24a2 2 0 012-2h18.437c9.083 0 15.044 4.92 15.044 12.474 0 5.302-4.01 10.049-9.119 10.88v.277C75.317 46.394 80 51.21 80 57.863zM60.521 28.34H49.948v14.934h8.905c6.884 0 10.68-2.772 10.68-7.727 0-4.643-3.264-7.207-9.012-7.207zM49.948 49.2v16.458H60.91c7.167 0 10.964-2.876 10.964-8.281 0-5.406-3.903-8.178-11.425-8.178H49.948z"
+                        fill="currentColor"></path>
+                </svg> -->
+                <img src="../assets/ViewMixer-Cat.png" alt="ViewMixer Cat" width="40" height="32">
+                <span class="fs-4">ViewMixer</span>
+            </a>
+        </header>
+
+        <div class="p-5 mb-4 bg-light rounded-3">
+            <div class="container-fluid py-5">
+                <h1 class="display-5 fw-bold">Cat drinking tea</h1>
+            <script type="module">
+
+                //this code makes the canvas resize responsively
+                var canvas = document.getElementsByTagName('canvas');
+                var heightRatio = 1;
+                canvas.height = canvas.width * heightRatio;
+
+                import { VMBuilder } from '/js/vm-builder.js';
+
+                document.addEventListener("DOMContentLoaded", function () {
+                    const vmbuilder = new VMBuilder();
+                    window.app = vmbuilder;
+                });
+            </script>
+            <div id="3dviewer"></div>
+                <button class="btn btn-primary btn-lg" type="button">Upload</button>
+            </div>
         </div>
-    </footer>
+
+        <div class="row align-items-md-stretch">
+            <div class="col-md-6">
+                <div class="h-100 p-5 text-white bg-dark rounded-3">
+                    <h2>Copy your code</h2>
+                    <p>Copy your snippet from here</p>
+                    <button class="btn btn-outline-light" type="button">Copy</button>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="h-100 p-5 bg-light border rounded-3">
+                    <h2>Help</h2>
+                    <p>Having trouble? Contact our 24h support</p>
+                    <button class="btn btn-outline-secondary" type="button">Contact</button>
+                </div>
+            </div>
+        </div>
+
+        <footer class="pt-3 mt-4 text-muted border-top">
+            &copy; 2021
+        </footer>
+    </div>
+</main>
+
 </body>
 
 </html>

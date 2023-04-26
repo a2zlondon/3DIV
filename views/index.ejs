@@ -28,7 +28,7 @@
         user-select: none;
       } */
 
-      @media (min-width: 768px) {
+      /* @media (min-width: 768px) {
         .bd-placeholder-img-lg {
           font-size: 3.5rem;
         }
@@ -40,7 +40,12 @@
           width: auto !important;
           height: auto !important;
         }
-      }
+      } */
+
+    body{
+        margin: 0;
+        padding: 0;
+    }
 
       canvas {
         width: 100%;
@@ -91,9 +96,9 @@
             <script type="module">
 
                 //this code makes the canvas resize responsively
-                var canvas = document.getElementsByTagName('canvas');
-                var heightRatio = 1.5;
-                canvas.height = canvas.width * heightRatio;
+                // var canvas = document.getElementsByTagName('canvas');
+                // var heightRatio = 1.5;
+                // canvas.height = canvas.width * heightRatio;
 
                 import { VMBuilder } from '/js/vm-builder.js';
 
@@ -125,7 +130,7 @@
         </div>
 
         <footer class="pt-3 mt-4 text-muted border-top">
-            &copy; 2021
+            &copy; ViewMixer 2023
         </footer>
     </div>
 </main>

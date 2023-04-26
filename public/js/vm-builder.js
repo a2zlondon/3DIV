@@ -4,6 +4,8 @@ import { FBXLoader } from '../../js/libs/three/jsm/FBXLoader.js';
 import { RGBELoader } from '../../js/libs/three/jsm/RGBELoader.js';
 import { OrbitControls } from '../../js/libs/three/jsm/OrbitControls.js';
 import { LoadingBar } from '../../js/libs/LoadingBar.js';
+import { Stats } from '../../js/libs/stats.module.js';
+import { ARButton } from '../../js/libs/ARButton.js';
 
 class VMBuilder {
     constructor() {
@@ -26,7 +28,9 @@ class VMBuilder {
 
         this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
         this.renderer.setPixelRatio(window.devicePixelRatio);
-        //this.renderer.setSize( window.innerWidth, window.innerHeight );
+        
+        this.renderer.setSize(window.innerWidth/2, window.innerHeight/2);
+        
         this.renderer.outputEncoding = THREE.sRGBEncoding;
         this.renderer.physicallyCorrectLights = true;
         container.appendChild(this.renderer.domElement);
@@ -41,8 +45,42 @@ class VMBuilder {
         this.controls.target.set(0, 3.5, 0);
         this.controls.update();
 
-        
-        //window.addEventListener('resize', this.resize.bind(this));
+        this.stats = new Stats();
+
+        this.initScene();
+        this.setupVR();
+
+        window.addEventListener('resize', this.resize.bind(this));
+    }
+
+    initScene() {
+        this.geometry = new THREE.BoxBufferGeometry(0.06, 0.06, 0.06);
+        this.meshes = [];
+    }
+
+    setupVR() {
+        this.renderer.xr.enabled = true;
+
+        const self = this;
+        let controller;
+
+        function onSelect() {
+            const material = new THREE.MeshPhongMaterial({ color: 0xffffff * Math.random() });
+            const mesh = new THREE.Mesh(self.geometry, material);
+            mesh.position.set(0, 0, - 0.3).applyMatrix4(controller.matrixWorld);
+            mesh.quaternion.setFromRotationMatrix(controller.matrixWorld);
+            self.scene.add(mesh);
+            self.meshes.push(mesh);
+
+        }
+
+        const btn = new ARButton(this.renderer);
+
+        controller = this.renderer.xr.getController(0);
+        controller.addEventListener('select', onSelect);
+        this.scene.add(controller);
+
+        this.renderer.setAnimationLoop(this.render.bind(this));
     }
 
     setEnvironment() {
@@ -72,6 +110,7 @@ class VMBuilder {
             // resource URL
             //'VM_tshirt_basic.gltf',
             'office-chair.glb',
+            //'VM_tshirt_basic_Textured.glb',
             // called when the resource is loaded
             function (gltf) {
                 const bbox = new THREE.Box3().setFromObject(gltf.scene);
@@ -142,7 +181,7 @@ class VMBuilder {
     }
 
     render() {
-        this.shirt.rotateY(0.009);
+        //this.shirt.rotateY(0.009);
         this.renderer.render(this.scene, this.camera);
     }
 }

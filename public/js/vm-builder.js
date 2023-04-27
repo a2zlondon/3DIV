@@ -108,25 +108,42 @@ class VMBuilder {
         // Load a glTF resource
         loader.load(
             // resource URL
+            //'chair.glb',
             //'VM_tshirt_basic.gltf',
-            'office-chair.glb',
+            //'office-chair.glb',
             //'VM_tshirt_basic_Textured.glb',
+            'VM_tshirt_basic_Textured-uvw-scaled-embedded.gltf',
             // called when the resource is loaded
             function (gltf) {
                 const bbox = new THREE.Box3().setFromObject(gltf.scene);
                 console.log(`min:${bbox.min.x.toFixed(2)},${bbox.min.y.toFixed(2)},${bbox.min.z.toFixed(2)} -  max:${bbox.max.x.toFixed(2)},${bbox.max.y.toFixed(2)},${bbox.max.z.toFixed(2)}`);
 
-                // gltf.scene.traverse((child) => {
-                //     if (child.isMesh) {
-                //         child.material.metalness = 0.2;
-                //     }
-                // })
-                self.shirt = gltf.scene;
+                gltf.scene.traverse((child) => {
+                    if (child.isMesh) {
+                        //this is the original reason for finding isMesh
+                        child.material.metalness = 0.2;
+                    }
+                })
+
+                console.log('%cvm-builder.js line:127 BufferGeometry', 'color: #007acc;', gltf.scene.children[0].children[0].geometry);
+                const mesh = gltf.scene.children[0].children[0];
+                const modelGeometry = mesh.geometry; //first of three meshes
+
+                // // Check if the mesh has UV coordinates
+                 if (modelGeometry.attributes.uv !== undefined) {
+                         // Create a texture
+                     const texture = new THREE.TextureLoader().load('../images/ViewMixer-Cat.png');
+                     texture.flipY = false;
+                     // Set the texture as the map for the material
+                     mesh.material.map = texture;
+                     mesh.material
+                     mesh.material.needsUpdate = true;
+                } else {
+                     console.error('UV coordinates are not available in the GLTF model.');
+                }
 
                 self.scene.add(gltf.scene);
-
                 self.loadingBar.visible = false;
-
                 self.renderer.setAnimationLoop(self.render.bind(self));
             },
             // called while loading is progressing

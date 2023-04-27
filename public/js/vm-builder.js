@@ -8,6 +8,7 @@ import { Stats } from '../../js/libs/stats.module.js';
 import { ARButton } from '../../js/libs/ARButton.js';
 
 class VMBuilder {
+
     constructor() {
         const container = document.createElement('div');
         //document.body.appendChild(container);
@@ -53,6 +54,39 @@ class VMBuilder {
         window.addEventListener('resize', this.resize.bind(this));
     }
 
+    addTexture(imgStr) { 
+        
+        console.log('%cvm-builder.js line:59 imgStr', 'color: #007acc;', imgStr);
+        const mesh = this.scene.children[3].children[0].children[0];
+        const modelGeometry = mesh.geometry; //first of three meshes
+
+        // Check if the mesh has UV coordinates
+        if (modelGeometry.attributes.uv !== undefined) {
+            // Create a texture
+            let imagePath = '../images/ViewMixer-Cat.png';
+            switch (imgStr) {
+                case "image1":
+                    imagePath = '../images/ViewMixer-Cat.png'; break;
+                case "image2":
+                    imagePath = '../images/Rocket-Cat.png'; break;
+                case  "image3":
+                    imagePath = '../images/Three-Cat.jpeg'; break;
+                case  "image4":
+                    imagePath = '../images/Sushi-Cat.jpeg'; break;
+                default: '../images/ViewMixer-Cat.png'
+            }
+
+            const texture = new THREE.TextureLoader().load(imagePath);
+            texture.flipY = false;
+            // Set the texture as the map for the material
+            mesh.material.map = texture;
+            mesh.material
+            mesh.material.needsUpdate = true;
+        } else {
+            console.error('UV coordinates are not available in the GLTF model.');
+        }
+    }
+
     initScene() {
         this.geometry = new THREE.BoxBufferGeometry(0.06, 0.06, 0.06);
         this.meshes = [];
@@ -71,7 +105,6 @@ class VMBuilder {
             mesh.quaternion.setFromRotationMatrix(controller.matrixWorld);
             self.scene.add(mesh);
             self.meshes.push(mesh);
-
         }
 
         const btn = new ARButton(this.renderer);
@@ -107,40 +140,16 @@ class VMBuilder {
 
         // Load a glTF resource
         loader.load(
-            // resource URL
-            //'chair.glb',
-            //'VM_tshirt_basic.gltf',
-            //'office-chair.glb',
-            //'VM_tshirt_basic_Textured.glb',
             'VM_tshirt_basic_Textured-uvw-scaled-embedded.gltf',
-            // called when the resource is loaded
             function (gltf) {
                 const bbox = new THREE.Box3().setFromObject(gltf.scene);
                 console.log(`min:${bbox.min.x.toFixed(2)},${bbox.min.y.toFixed(2)},${bbox.min.z.toFixed(2)} -  max:${bbox.max.x.toFixed(2)},${bbox.max.y.toFixed(2)},${bbox.max.z.toFixed(2)}`);
 
                 gltf.scene.traverse((child) => {
                     if (child.isMesh) {
-                        //this is the original reason for finding isMesh
                         child.material.metalness = 0.2;
                     }
                 })
-
-                console.log('%cvm-builder.js line:127 BufferGeometry', 'color: #007acc;', gltf.scene.children[0].children[0].geometry);
-                const mesh = gltf.scene.children[0].children[0];
-                const modelGeometry = mesh.geometry; //first of three meshes
-
-                // // Check if the mesh has UV coordinates
-                 if (modelGeometry.attributes.uv !== undefined) {
-                         // Create a texture
-                     const texture = new THREE.TextureLoader().load('../images/ViewMixer-Cat.png');
-                     texture.flipY = false;
-                     // Set the texture as the map for the material
-                     mesh.material.map = texture;
-                     mesh.material
-                     mesh.material.needsUpdate = true;
-                } else {
-                     console.error('UV coordinates are not available in the GLTF model.');
-                }
 
                 self.scene.add(gltf.scene);
                 self.loadingBar.visible = false;
@@ -155,6 +164,7 @@ class VMBuilder {
                 console.log('An error happened');
             }
         );
+
     }
 
     loadFBX() {
@@ -194,7 +204,7 @@ class VMBuilder {
     }
 
     render() {
-        //this.shirt.rotateY(0.009);
+        this.scene.rotateY(0.009);
         this.renderer.render(this.scene, this.camera);
     }
 }

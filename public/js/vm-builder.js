@@ -15,7 +15,7 @@ class VMBuilder {
         document.getElementById('3dviewer').appendChild(container);
 
         this.camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 100);
-        this.camera.position.set(0, 4, 14);
+        this.camera.position.set(10, 1, 1);
 
         this.scene = new THREE.Scene();
         this.scene.background = new THREE.Color(0xffffff);
@@ -204,7 +204,7 @@ class VMBuilder {
     }
 
     render() {
-        this.scene.rotateY(0.009);
+        this.scene.rotateY(0.001);
         this.renderer.render(this.scene, this.camera);
     }
 }
